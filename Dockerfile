@@ -10,4 +10,3 @@ WORKDIR /code/
 
 
 CMD ["python", "-u", "/code/component.py"]
-
