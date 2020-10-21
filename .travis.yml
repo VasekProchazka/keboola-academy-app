@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 
 services:
   - docker
@@ -6,7 +6,7 @@ services:
 jobs:
   include:
     - stage: deploy
-      if: tag IS present AND  branch = master
+      if: tag IS present AND  branch = main
       script: "./deploy.sh"
 
 before_script:
