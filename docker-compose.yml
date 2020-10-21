@@ -1,0 +1,10 @@
+version: "2"
+services:
+  dev:
+    build: .
+    volumes:
+      - ./src:/code
+      - ./data:/data
+
+    environment:
+      - KBC_DATADIR=./data

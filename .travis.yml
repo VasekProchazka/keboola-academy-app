@@ -1,0 +1,18 @@
+sudo: false
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: deploy
+      if: tag IS present AND  branch = master
+      script: "./deploy.sh"
+
+before_script:
+  - export APP_IMAGE=keboola-component
+  - docker -v
+  - docker build -t $APP_IMAGE .
+
+after_success:
+  - docker images
